@@ -14,7 +14,7 @@ final class TemplatesViewModel: ObservableObject {
 
     init(store: TemplateStore = .shared) {
         self.store = store
-
+ 
         store.$collections
             .receive(on: DispatchQueue.main)
             .sink { [weak self] items in

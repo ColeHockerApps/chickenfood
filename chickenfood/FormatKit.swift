@@ -10,7 +10,7 @@ struct FormatKit {
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: date)
     }
-
+ 
     static func readableDay(from stamp: String) -> String {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .gregorian)

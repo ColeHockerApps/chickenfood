@@ -12,7 +12,7 @@ struct TemplatesScreen: View {
             collectionStrip
             templatesList
             actionRow
-        }
+        } 
         .padding(.top, 4)
         .sheet(isPresented: $isAddCollectionPresented) {
             AddCollectionSheet(

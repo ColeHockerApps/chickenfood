@@ -1,7 +1,9 @@
 import Combine
 import Foundation
 
+@MainActor
 final class AppRouter: ObservableObject {
+
     enum Stage: String {
         case loading
         case consent
@@ -23,44 +25,79 @@ final class AppRouter: ObservableObject {
     private var didStart = false
 
     init() {
+
         start()
     }
 
     func start() {
-        guard !didStart else { return }
-        didStart = true
+        guard !didStart else {
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) { [weak self] in
-            guard let self else { return }
-            self.stage = self.local.exists(key: self.consentKey) ? .main : .consent
+            return
         }
+        didStart = true
+        stage = .loading
+        mainRoute = .menu
+
+    }
+
+    func requireConsentIfNeeded() {
+        let hasConsent = local.exists(key: consentKey)
+
+        
+        if hasConsent {
+            stage = .main
+            mainRoute = .menu
+
+            return
+        }
+
+        stage = .consent
+        mainRoute = .menu
+
+    }
+
+    func allowMainFromFoodFlow() {
+
+        stage = .main
+        if mainRoute != .menu {
+            mainRoute = .menu
+        }
+
     }
 
     func acceptConsent() {
+
         local.save(true, key: consentKey)
         stage = .main
         mainRoute = .menu
+
     }
 
     func resetConsentForTesting() {
+
         local.remove(key: consentKey)
         stage = .consent
         mainRoute = .menu
+
     }
 
     func goMenu() {
+
         mainRoute = .menu
     }
 
     func goTemplates() {
+
         mainRoute = .templates
     }
 
     func goMealLog() {
+
         mainRoute = .mealLog
     }
 
     func goSettings() {
+
         mainRoute = .settings
     }
 }

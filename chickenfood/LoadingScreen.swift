@@ -4,7 +4,7 @@ import SwiftUI
 struct LoadingScreen: View {
     @EnvironmentObject private var router: AppRouter
     @StateObject private var boot = BootViewModel()
-
+ 
     var body: some View {
         ZStack {
             HuePalette.roadBase.ignoresSafeArea()

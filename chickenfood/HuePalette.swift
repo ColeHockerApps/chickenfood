@@ -20,4 +20,4 @@ struct HuePalette {
         ]
         return tones[index % tones.count]
     }
-}
+} 

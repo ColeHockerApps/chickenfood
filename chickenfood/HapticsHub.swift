@@ -13,7 +13,7 @@ final class HapticsHub {
         impactMedium.prepare()
         notify.prepare()
     }
-
+ 
     func prime() {
         impactLight.prepare()
         impactMedium.prepare()

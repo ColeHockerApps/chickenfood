@@ -20,7 +20,7 @@ final class LocalStore {
             }
         }
     }
-
+ 
     func load<T: Codable>(_ type: T.Type, key: String) -> T? {
         guard let data = UserDefaults.standard.data(forKey: key) else {
             return nil

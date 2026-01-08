@@ -17,7 +17,7 @@ final class TemplateStore: ObservableObject {
             persist()
         }
     }
-
+ 
     func allTemplates() -> [MealTemplate] {
         collections.flatMap { $0.templates }
     }

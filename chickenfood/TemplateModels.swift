@@ -22,7 +22,7 @@ struct MealTemplate: Identifiable, Codable, Equatable {
         self.createdAt = createdAt
     }
 }
-
+ 
 struct TemplateCollection: Identifiable, Codable {
     let id: UUID
     var name: String

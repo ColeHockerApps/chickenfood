@@ -14,7 +14,7 @@ final class PrivacyPolicy: NSObject, ObservableObject {
         policyURL = URL(string: "https://www.freeprivacypolicy.com/live/dcd3a139-8fff-459c-8899-e254e3080528")!
         super.init()
     }
-
+ 
     func open() {
         isPresented = true
     }

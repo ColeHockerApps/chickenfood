@@ -239,7 +239,7 @@ struct SettingsScreen: View {
         return URL(string: "https://" + trimmed)
     }
 }
-
+ 
 private struct PrivacySheet: View {
     let url: URL?
     let onClose: () -> Void
